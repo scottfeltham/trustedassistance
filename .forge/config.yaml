@@ -1,0 +1,9 @@
+project: trustedassistance
+version: 2.0.0
+created: '2026-02-18T18:09:18.972602+00:00'
+phases:
+- Focus
+- Orchestrate
+- Refine
+- Generate
+- Evaluate

@@ -1,0 +1,136 @@
+:root {
+  --color-bg: #0a0a1a;
+  --color-surface: #12122a;
+  --color-accent: #6c5ce7;
+  --color-accent-bright: #a29bfe;
+  --color-hot: #fd79a8;
+  --color-text: #f0f0f8;
+  --color-text-muted: #a0a0c0;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Dubai skyline background */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/dubai-skyline.jpg') center center / cover no-repeat;
+  z-index: 0;
+}
+
+/* Dark overlay for text readability + subtle gradient tint */
+body::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 10, 26, 0.7) 0%, rgba(10, 10, 26, 0.5) 40%, rgba(10, 10, 26, 0.8) 100%),
+    radial-gradient(ellipse at 50% 30%, rgba(108, 92, 231, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(253, 121, 168, 0.08) 0%, transparent 50%);
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 40rem;
+  background: rgba(10, 10, 26, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.5rem;
+}
+
+.brand {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--color-accent-bright), var(--color-hot));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  color: var(--color-text-muted);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--color-accent);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-bright);
+  background: rgba(108, 92, 231, 0.1);
+  margin-bottom: 2.5rem;
+}
+
+.contact {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.contact a {
+  color: var(--color-hot);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact a:hover {
+  color: var(--color-accent-bright);
+}
+
+.contact a:focus-visible {
+  outline: 2px solid var(--color-accent-bright);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Decorative line */
+.divider {
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-hot));
+  border: none;
+  margin: 0 auto 2.5rem;
+  border-radius: 1px;
+}
